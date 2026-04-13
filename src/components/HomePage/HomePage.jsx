@@ -1,9 +1,12 @@
 import React from 'react';
+import FourCard from './FourCard';
+import Friends from './Friends';
 
 const HomePage = () => {
     return (
         <div>
-            <h2>This is Homepage</h2>
+            <FourCard></FourCard>
+            
         </div>
     );
 };
