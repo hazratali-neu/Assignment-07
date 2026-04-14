@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Friend = ({ friend }) => {
-    const { picture, name, days_since_contact, tags, status } = friend;
+    const { picture,id, name, days_since_contact, tags, status } = friend;
     return (
-        <div className='bg-[#FFFFFF] shadow-lg rounded-lg text-center space-y-2 py-8'>
+        <Link to={`/friend/${id}`} className='bg-[#FFFFFF] shadow-lg rounded-lg text-center space-y-2 py-8'>
            <div className='flex justify-center'>
              <img src={picture} alt="" />
            </div>
@@ -16,7 +17,7 @@ const Friend = ({ friend }) => {
             <div className={`badge badge-success p-4
           ${status === 'overdue' ? 'bg-[#EF4444] text-white' : status === 'on-track' ? 'bg-[#244D3F] text-white' : 'bg-[#EFAD44] text-white'} `}>{status}</div>
 
-        </div>
+        </Link>
     );
 };
 

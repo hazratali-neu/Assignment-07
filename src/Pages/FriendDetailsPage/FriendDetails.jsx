@@ -1,4 +1,3 @@
-import React from 'react';
 import { useParams } from 'react-router';
 import useFrindsData from '../../Hooks/useFrindsData';
 import { MdDelete } from 'react-icons/md';
@@ -6,9 +5,55 @@ import { HiBellSnooze, HiMiniArchiveBox } from 'react-icons/hi2';
 import CallImg from '../../assets/call.png'
 import TextImg from '../../assets/text.png'
 import videoImg from '../../assets/video.png'
+import { useContext } from 'react';
+import { FriendContext } from '../../ContextApi/CreateContext';
+import { toast } from 'react-toastify';
 const FriendDetails = () => {
     const { id } = useParams();
     const { friends, loading } = useFrindsData();
+  
+//   ,textAdd,setTextAdd
+    const { calladd,setCalladd}=useContext(FriendContext);
+
+    function handleCallAdded(currentCall)
+    {
+
+        // const exist=calladd.find(data=>data.id===currentCall.id);
+        // if(exist)
+        // {
+        //   toast.error(`${currentCall.name} already Exist`);
+        // }
+        // else
+        // {
+            toast.success(`Call With ${currentCall.name}`);
+            setCalladd([...calladd, { ...currentCall, type: 'call' }]);
+            
+        
+    }
+    
+    function handleTextAdded(currentCall)
+    {
+
+       
+         toast.success(`Text With ${currentCall.name}`);
+           setCalladd([...calladd, { ...currentCall, type: 'text' }]);
+             
+        
+    }
+     function handleVideoAdded(currentCall)
+    {
+
+       
+         toast.success(`video With ${currentCall.name}`);
+         setCalladd([...calladd, { ...currentCall, type: 'video' }]);
+    
+        
+    }
+
+   
+
+
+
 
     if (loading) {
         return <div className="text-center p-20 font-bold">Loading...</div>;
@@ -17,7 +62,7 @@ const FriendDetails = () => {
     const exceptedFriend = friends?.find((friend) => friend.id === Number(id));
 
     const { picture, name, status, bio, email, days_since_contact, goal, next_due_date, tags } = exceptedFriend;
-    console.log(picture);
+
     return (
         <div className="max-w-6xl mt-6 mx-auto p-6 bg-gray-50">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -50,7 +95,7 @@ const FriendDetails = () => {
                         <button className="btn btn-block bg-white bg-red-400 border-gray-200 "><HiBellSnooze />
                             Snooze 2 Weeks</button>
                         <button className="btn btn-block bg-white border-gray-200 "><HiMiniArchiveBox /> Archive</button>
-                        <button className="btn btn-block bg-white border-gray-200 text-red-500 "><MdDelete/> Delete</button>
+                        <button className="btn btn-block bg-white border-gray-200 text-red-500 "><MdDelete /> Delete</button>
                     </div>
                 </div>
 
@@ -81,15 +126,15 @@ const FriendDetails = () => {
                     <div>
                         <p className='text-[#244D3F] mt-6 mb-4 font-medium text-lg'>Quick Check-In</p>
                         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-                            <div className='bg-[#E9E9E9] rounded-lg flex justify-center items-center flex-col py-4'>
+                            <div onClick={()=>handleCallAdded(exceptedFriend)} className='bg-[#E9E9E9] rounded-lg flex justify-center items-center flex-col py-4'>
                                 <img src={CallImg} alt="" />
                                 <p className='text-[#1F2937] text-lg'>Call</p>
                             </div>
-                            <div className='bg-[#E9E9E9] rounded-lg flex justify-center items-center flex-col py-4'>
-                                <img  src={TextImg} alt="" />
+                            <div onClick={()=>handleTextAdded(exceptedFriend)} className='bg-[#E9E9E9] rounded-lg flex justify-center items-center flex-col py-4'>
+                                <img src={TextImg} alt="" />
                                 <p className='text-[#1F2937] mt-2 text-lg'>Text</p>
                             </div>
-                            <div className='bg-[#E9E9E9] rounded-lg flex justify-center items-center flex-col py-4'>
+                            <div onClick={()=> handleVideoAdded(exceptedFriend)} className='bg-[#E9E9E9] rounded-lg flex justify-center items-center flex-col py-4'>
                                 <img src={videoImg} alt="" />
                                 <p className='text-[#1F2937] text-lg'>Video</p>
                             </div>

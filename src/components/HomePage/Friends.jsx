@@ -1,10 +1,11 @@
 
 import useFrindsData from '../../Hooks/useFrindsData';
 import Friend from '../../ui/Friend';
+import { FriendContext } from '../../ContextApi/CreateContext';
 
 const Friends = () => {
 
-
+   
     const { friends, loading } = useFrindsData();
     if (loading) {
         return (

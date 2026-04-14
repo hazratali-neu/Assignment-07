@@ -21,15 +21,17 @@ const Navber = () => {
                     </li>
 
                     <li className='text-[#64748B]'>
-                        <NavLink to='wow' className={({ isActive }) =>
-                            `flex items-center gap-1 ${isActive && 'bg-[#244D3F] text-white'}`
+                        <NavLink to='/timeline' className={({ isActive }) =>
+                            `flex btn items-center gap-1 ${isActive && 'bg-[#244D3F] text-white'}`
                         }>
                             <button className='flex items-center gap-1'><RiTimeLine /> Timeline</button>
                         </NavLink>
                     </li>
 
                     <li className='text-[#64748B]'>
-                        <NavLink className='flex items-center gap-1'>
+                        <NavLink to='/stats' className={({ isActive }) =>
+                            `flex btn items-center gap-1 ${isActive && 'bg-[#244D3F] text-white'}`
+                        }>
                             <button className='flex items-center gap-1'> <ImStatsDots /> Stats</button>
                         </NavLink>
                     </li>
