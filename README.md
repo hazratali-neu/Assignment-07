@@ -1,16 +1,29 @@
-# React + Vite
+1. Project Name
+KeenKeeper — Keep Your Friendships Alive
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rule.
+2. Short Description
+KeenKeeper is a friendship management web application designed to help users maintain consistent connections with their friends. It allows users to track their last contact dates, set relationship goals, and log interactions to ensure no important friendship is neglected.
 
-Currently, two official plugins are available:
+3. Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Frontend: React.js, JavaScript (ES6+)
 
-## React Compiler
+Routing: React Router DOM
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Styling: Tailwind CSS & DaisyUI
 
-## Expanding the ESLint configuration
+Data Visualization: Recharts (for Analytics)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Icons: Lucide React / FontAwesome
+
+Notifications: React Toastify (for check-in alerts)
+
+4. Key Features
+
+Dynamic Friendship Tracking: I used color-coded status badges like "Overdue" and "On-track" to easily show which friends I need to contact soon.
+
+One-Click Interaction Log: Users can click Call, Text, or Video buttons to instantly add a new activity to their timeline with a toast notification.
+
+Visual Stats with Pie Chart: I integrated a Pie Chart on the Stats page to show a clear breakdown of how I communicate with my friends.
+
+Fully Responsive UI: I designed the entire website to be user-friendly and look great on all devices, including mobiles, tablets, and desktops.
