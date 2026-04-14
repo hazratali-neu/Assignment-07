@@ -8,30 +8,34 @@ import { ImStatsDots } from 'react-icons/im';
 const Navber = () => {
     return (
         <div className='bg-[#FFFFFF] border-b border-gray-300'>
-           <nav className='w-11/12 mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4 py-6'>
-             <img className='w-28' src={keen} alt="" />
+            <nav className='w-11/12 mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4 py-6'>
+                <img className='w-28' src={keen} alt="" />
 
-             <ul className='flex flex-col sm:flex-row gap-3 sm:gap-5'>
-                <li className='text-[#64748B]'>
-                    <NavLink className='flex items-center gap-1'>
-                        <BiHomeAlt2 /> Home
-                    </NavLink>
-                </li>
+                <ul className='flex flex-col items-center sm:flex-row gap-3 sm:gap-5'>
+                    <li className='text-[#64748B]'>
+                        <NavLink to='/' className={({ isActive }) =>
+                            `btn ${isActive && 'bg-[#244D3F] text-white'}`
+                        }>
+                            <button className='flex items-center gap-1'><BiHomeAlt2 /> Home</button>
+                        </NavLink>
+                    </li>
 
-                <li className='text-[#64748B]'>
-                    <NavLink className='flex items-center gap-1'>
-                        <RiTimeLine /> Timeline
-                    </NavLink>
-                </li>
+                    <li className='text-[#64748B]'>
+                        <NavLink to='wow' className={({ isActive }) =>
+                            `flex items-center gap-1 ${isActive && 'bg-[#244D3F] text-white'}`
+                        }>
+                            <button className='flex items-center gap-1'><RiTimeLine /> Timeline</button>
+                        </NavLink>
+                    </li>
 
-                <li className='text-[#64748B]'>
-                    <NavLink className='flex items-center gap-1'>
-                        <ImStatsDots /> Stats
-                    </NavLink>
-                </li>
-             </ul>
+                    <li className='text-[#64748B]'>
+                        <NavLink className='flex items-center gap-1'>
+                            <button className='flex items-center gap-1'> <ImStatsDots /> Stats</button>
+                        </NavLink>
+                    </li>
+                </ul>
 
-           </nav>
+            </nav>
         </div>
     );
 };

@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import MainLayout from "../MainLayout/MainLayout";
 import HomePage from "../components/HomePage/HomePage";
+import FriendDetails from "../Pages/FriendDetailsPage/FriendDetails";
 
 export const router = createBrowserRouter([
   {
@@ -10,6 +11,10 @@ export const router = createBrowserRouter([
       {
         index:true,
         Component:HomePage
+      },
+      {
+        path:'/friend/:id',
+        Component:FriendDetails
       }
     ]
 
